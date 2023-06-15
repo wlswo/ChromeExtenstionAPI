@@ -12,6 +12,11 @@ import java.util.Map;
 public class DemoController {
     private final demoServiceImpl demoService;
 
+    @GetMapping("/")
+    public String getBalance() {
+        return demoService.getBalance();
+    }
+
     @GetMapping("/demo")
     public Map<String, Object> demoController() {
         return demoService.demoService();
