@@ -14,26 +14,34 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 
 @SpringBootTest
-@PropertySource("classpath:application.yml")
+@PropertySource("classpath:adapter-http-property-apikeys.yml")
 public class openApiTest {
 
     @Value("${upbit-open-api.access-key}")
-    private String accessKey;
+    private List<String> accessKey;
 
     @Value("${upbit-open-api.secret-key}")
-    private String secretKey;
+    private List<String> secretKey;
 
     private final String serverUrl = "https://api.upbit.com";
-
     @Test
-    void 업비트_가격_조회() {
-        Algorithm algorithm = Algorithm.HMAC256(secretKey);
+    void 자산_조회() {
+        for (int i = 0; i < accessKey.size(); i++) {
+            API_호출(accessKey.get(i),secretKey.get(i));
+            System.out.println(accessKey.size());
+        }
+    }
+    
+    
+    void API_호출(String accessK, String secretK) {
+        Algorithm algorithm = Algorithm.HMAC256(secretK);
         String jwtToken = JWT.create()
-                .withClaim("access_key", accessKey)
+                .withClaim("access_key", accessK)
                 .withClaim("nonce", UUID.randomUUID().toString())
                 .sign(algorithm);
 
