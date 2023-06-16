@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -27,16 +28,6 @@ public class demoServiceImpl implements demoService {
     private String secretKey;
 
     private final String serverUrl = "https://api.upbit.com";
-
-    @Override
-    public Map<String, Object> demoService() {
-        Map<String, Object> data = new HashMap<>();
-        data.put("1", "check1");
-        data.put("2", "check1");
-        data.put("3", "check1");
-
-        return data;
-    }
 
     @Override
     public String getBalance() {
