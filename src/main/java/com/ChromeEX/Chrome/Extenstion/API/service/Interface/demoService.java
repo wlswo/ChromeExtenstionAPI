@@ -6,6 +6,5 @@ import java.util.Map;
 import java.util.Objects;
 
 public interface demoService {
-    Map<String, Object> demoService();
     String getBalance();
 }
