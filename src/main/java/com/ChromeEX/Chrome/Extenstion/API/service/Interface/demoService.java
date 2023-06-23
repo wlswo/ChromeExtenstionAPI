@@ -1,10 +1,8 @@
 package com.ChromeEX.Chrome.Extenstion.API.service.Interface;
 
-import org.apache.http.HttpEntity;
-
-import java.util.Map;
-import java.util.Objects;
+import org.springframework.boot.configurationprocessor.json.JSONException;
 
 public interface demoService {
-    String getBalance();
+    String getBalance() throws JSONException;
+    String requestUseUpbitAPI(String accessKey, String secretKey);
 }
