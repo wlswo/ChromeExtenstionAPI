@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-public class DemoController {
+public class demoController {
     private final demoServiceImpl demoService;
 
     @GetMapping("/bit")
