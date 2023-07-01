@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 
@@ -33,11 +34,11 @@ public class PropertiesConfig implements EnvironmentAware {
 
     @Test
     void getAccessKey() {
-        accessKey.forEach(System.out::println);
+        assertThat(accessKey).isNotNull();
     }
 
     @Test
     void getSecretKey() {
-        secretKey.forEach(System.out::println);
+        assertThat(secretKey).isNotNull();
     }
 }
